@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 // Define collection and schema
 const Blog = new Schema(
   {
-    blog_name: {
+    blog_content: {
       type: String,
     },
     blog_title: {
