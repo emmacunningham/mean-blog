@@ -23,6 +23,10 @@ export class AddBlogComponent implements OnInit {
   @ViewChild("resetBlogForm", { static: true }) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   blogForm: FormGroup;
+  submitted = false;
+  titleChange = false;
+  contentChange = false;
+  authorChange = false;
 
   ngOnInit() {
     this.submitBookForm();
@@ -35,12 +39,28 @@ export class AddBlogComponent implements OnInit {
     private blogApi: ApiService
   ) {}
 
+  get f() {
+    return this.blogForm.controls;
+  }
+
+  onTitleChange() {
+    this.titleChange = true;
+  }
+
+  onAuthorChange() {
+    this.authorChange = true;
+  }
+
+  onContentChange() {
+    this.contentChange = true;
+  }
+
   /* Reactive book form */
   submitBookForm() {
     this.blogForm = this.fb.group({
-      blog_title: ["", [Validators.required]],
-      blog_content: ["", [Validators.required]],
-      blog_author: ["", [Validators.required]],
+      blog_title: ["", { validators: [Validators.required] }],
+      blog_content: ["", { validators: [Validators.required] }],
+      blog_author: ["", { validators: [Validators.required] }],
     });
   }
 
@@ -51,6 +71,8 @@ export class AddBlogComponent implements OnInit {
 
   /* Submit book */
   submitBlogForm() {
+    this.submitted = true;
+
     if (this.blogForm.valid) {
       this.blogApi.AddBlog(this.blogForm.value).subscribe((res) => {
         this.ngZone.run(() => this.router.navigateByUrl("/view-blogs"));

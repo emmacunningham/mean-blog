@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -7,7 +11,7 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .header {
@@ -48,15 +52,18 @@ body {
 }
 
 .mat-list-item.active {
-  background: rgba(0, 0, 0, .04);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .mat-sidenav-content {
   padding: 25px 40px 0;
 }
 
+.mat-drawer-container {
+  background-color: #fff;
+}
+
 .mat-sidenav {
-  background-color: #F2F2F2;
   width: 250px;
 }
 
@@ -81,7 +88,7 @@ mat-sidenav mat-icon {
   margin-right: 25px;
 }
 
-.controlers-wrapper>* {
+.controlers-wrapper > * {
   width: 100%;
   padding: 0;
 }
@@ -150,9 +157,7 @@ body .push-right {
   margin: 20px 0 0 0;
 }
 
-
 @media (max-width: 1024px) {
-
   .inner-wrapper mat-card {
     width: 100%;
   }

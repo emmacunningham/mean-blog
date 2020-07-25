@@ -1,58 +1,63 @@
-<!-- Title group  -->
-<div class="title-group">
-  <h1 class="mat-h1">Add Blog</h1>
-  <mat-divider fxFlex="1 0"></mat-divider>
-</div>
-
 <!-- Form -->
-<div class="inner-wrapper">
+<div class="inner-wrapper add-blog-page">
   <form
     [formGroup]="blogForm"
     (ngSubmit)="submitBlogForm()"
     #resetBlogForm="ngForm"
     novalidate
+    class="form-container"
   >
-    <!-- Left block -->
-    <mat-card>
-      <div class="controlers-wrapper">
-        <!-- Title -->
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            placeholder="Blog title"
-            formControlName="blog_title"
-            className="custom-form-field"
-          />
-          <mat-error *ngIf="handleError('blog_title', 'required')">
-            Field required.
-          </mat-error>
-        </mat-form-field>
+    <div class="form-group">
+      <label>Title</label>
+      <input
+        formControlName="blog_title"
+        (change)="onTitleChange()"
+        (blur)="onTitleChange()"
+      />
 
-        <!-- Content -->
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            placeholder="Blog content"
-            formControlName="blog_content"
-          />
-          <mat-error *ngIf="handleError('blog_content', 'required')">
-            Field required.
-          </mat-error>
-        </mat-form-field>
-
-        <!-- Author -->
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            placeholder="Blog author"
-            formControlName="blog_author"
-          />
-          <mat-error *ngIf="handleError('blog_author', 'required')">
-            Field required.
-          </mat-error>
-        </mat-form-field>
+      <div
+        *ngIf="(submitted || titleChange) && f.blog_title.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.blog_title.errors.required" class="form-field-error">
+          Field required.
+        </div>
       </div>
-    </mat-card>
+    </div>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        formControlName="blog_author"
+        (change)="onAuthorChange()"
+        (blur)="onAuthorChange()"
+      />
+      <div
+        *ngIf="(submitted || authorChange) && f.blog_author.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.blog_author.errors.required" class="form-field-error">
+          Field required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Content</label>
+      <textarea
+        formControlName="blog_content"
+        (change)="onContentChange()"
+        (blur)="onContentChange()"
+      ></textarea>
+      <div
+        *ngIf="(submitted || contentChange) && f.blog_content.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.blog_content.errors.required" class="form-field-error">
+          Field required.
+        </div>
+      </div>
+    </div>
 
     <!-- Submit & Reset -->
     <mat-card>
