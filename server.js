@@ -3,7 +3,7 @@ let express = require("express"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   bodyParser = require("body-parser"),
-  dataBaseConfig = require("./database/db");
+  dataBaseConfig = require("./backend/database/db");
 
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
@@ -22,7 +22,7 @@ mongoose
   );
 
 // Set up express js port
-const blogRoute = require("./routes/blog.route");
+const blogRoute = require("./backend/routes/blog.route");
 
 const app = express();
 app.use(bodyParser.json());
@@ -34,6 +34,9 @@ app.use(
 app.use(cors());
 
 // Setting up static directory
+// var distDir = __dirname + "/dist/";
+// app.use(express.static(distDir));
+
 app.use(
   express.static(
     path.join(__dirname, "dist/angular8-meanstack-angular-material")
@@ -44,7 +47,7 @@ app.use(
 app.use("/api", blogRoute);
 
 // PORT
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
   console.log("Connected to port " + port);
@@ -52,7 +55,7 @@ app.listen(port, () => {
 
 // Find 404 and hand over to error handler
 app.use((req, res, next) => {
-  next(createError(404));
+  next();
 });
 
 // Index Route
@@ -60,11 +63,11 @@ app.get("/", (req, res) => {
   res.send("invaild endpoint");
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "dist/angular8-meanstack-angular-material/index.html")
-  );
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(
+//     path.join(__dirname, "dist/angular8-meanstack-angular-material/index.html")
+//   );
+// });
 
 // error handler
 app.use(function (err, req, res, next) {
