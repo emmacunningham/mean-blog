@@ -12,7 +12,7 @@ import {
   providedIn: "root",
 })
 export class ApiService {
-  endpoint: string = "/api"; // TODO: update host
+  endpoint: string = "https://mean-demo-blog.herokuapp.com/api"; // TODO: update host
   headers = new HttpHeaders().set("Content-Type", "application/json");
 
   constructor(private http: HttpClient) {}

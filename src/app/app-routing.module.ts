@@ -5,7 +5,7 @@ import { AddBlogComponent } from "./components/add-blog/add-blog.component";
 import { BlogsListComponent } from "./components/blogs-list/blogs-list.component";
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "add-blog" },
+  { path: "", pathMatch: "full", redirectTo: "view-blogs" },
   { path: "add-blog", component: AddBlogComponent },
   // { path: 'edit-blog/:id', component: EditBlogComponent },
   { path: "view-blogs", component: BlogsListComponent },
