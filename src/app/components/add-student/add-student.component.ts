@@ -22,9 +22,7 @@ export class AddStudentComponent implements OnInit {
   @ViewChild("chipList", { static: true }) chipList;
   @ViewChild("resetStudentForm", { static: true }) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  studentForm: FormGroup;
-  subjectArray: Subject[] = [];
-  SectioinArray: any = ["A", "B", "C", "D", "E"];
+  blogForm: FormGroup;
 
   ngOnInit() {
     this.submitBookForm();
@@ -39,55 +37,22 @@ export class AddStudentComponent implements OnInit {
 
   /* Reactive book form */
   submitBookForm() {
-    this.studentForm = this.fb.group({
-      student_name: ["", [Validators.required]],
-      student_email: ["", [Validators.required]],
-      section: ["", [Validators.required]],
-      subjects: [this.subjectArray],
-      dob: ["", [Validators.required]],
-      gender: ["Male"],
-    });
-  }
-
-  /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    // Add language
-    if ((value || "").trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() });
-    }
-    // Reset the input value
-    if (input) {
-      input.value = "";
-    }
-  }
-
-  /* Remove dynamic languages */
-  remove(subject: Subject): void {
-    const index = this.subjectArray.indexOf(subject);
-    if (index >= 0) {
-      this.subjectArray.splice(index, 1);
-    }
-  }
-
-  /* Date */
-  formatDate(e) {
-    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.studentForm.get("dob").setValue(convertDate, {
-      onlyself: true,
+    this.blogForm = this.fb.group({
+      blog_title: [""],
+      blog_content: [""],
+      blog_author: [""],
     });
   }
 
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
-    return this.studentForm.controls[controlName].hasError(errorName);
+    return this.blogForm.controls[controlName].hasError(errorName);
   };
 
   /* Submit book */
-  submitStudentForm() {
-    if (this.studentForm.valid) {
-      this.blogApi.AddBlog(this.studentForm.value).subscribe((res) => {
+  submitBlogForm() {
+    if (this.blogForm.valid) {
+      this.blogApi.AddBlog(this.blogForm.value).subscribe((res) => {
         this.ngZone.run(() => this.router.navigateByUrl("/blogs-list"));
       });
     }
