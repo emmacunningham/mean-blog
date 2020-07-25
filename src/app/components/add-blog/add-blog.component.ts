@@ -53,7 +53,7 @@ export class AddBlogComponent implements OnInit {
   submitBlogForm() {
     if (this.blogForm.valid) {
       this.blogApi.AddBlog(this.blogForm.value).subscribe((res) => {
-        this.ngZone.run(() => this.router.navigateByUrl("/blogs-list"));
+        this.ngZone.run(() => this.router.navigateByUrl("/view-blogs"));
       });
     }
   }

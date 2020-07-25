@@ -1,0 +1,11 @@
+.header {
+  background: #282828;
+  font-weight: 400;
+  font-size: 24px;
+  height: 66px;
+  position: fixed;
+}
+
+.txt-header {
+  color: #58bcea;
+}
