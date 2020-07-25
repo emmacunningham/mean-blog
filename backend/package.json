@@ -4,6 +4,7 @@
   "description": "An angular 8 mean stack crud web app with angular material 7.",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Digamber Rawat",
