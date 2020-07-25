@@ -10,21 +10,20 @@ import { MatTableDataSource } from "@angular/material/table";
   styleUrls: ["./students-list.component.css"],
 })
 export class StudentsListComponent implements OnInit {
-  StudentData: any = [];
+  BlogData: any = [];
   dataSource: MatTableDataSource<Student>;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   displayedColumns: string[] = [
     "_id",
-    "student_name",
-    "student_email",
-    "section",
-    "action",
+    "blog_title",
+    "blog_content",
+    "blog_author",
   ];
 
   constructor(private blogApi: ApiService) {
     this.blogApi.GetBlogs().subscribe((data) => {
-      this.StudentData = data;
-      this.dataSource = new MatTableDataSource<Student>(this.StudentData);
+      this.BlogData = data;
+      this.dataSource = new MatTableDataSource<Student>(this.BlogData);
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       }, 0);
