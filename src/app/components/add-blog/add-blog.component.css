@@ -1,0 +1,23 @@
+.form-labels {
+  color: #212529;
+}
+
+.custom-form-field {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.button-wrapper {
+  text-align: right;
+}
+
+.submit-btn {
+  background: #58bcea;
+  padding: 7px 30px;
+  font-size: 19px;
+  border-radius: 0;
+  font-weight: normal;
+}

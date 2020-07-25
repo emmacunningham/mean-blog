@@ -38,9 +38,9 @@ export class AddBlogComponent implements OnInit {
   /* Reactive book form */
   submitBookForm() {
     this.blogForm = this.fb.group({
-      blog_title: [""],
-      blog_content: [""],
-      blog_author: [""],
+      blog_title: ["", [Validators.required]],
+      blog_content: ["", [Validators.required]],
+      blog_author: ["", [Validators.required]],
     });
   }
 

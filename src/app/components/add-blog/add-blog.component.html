@@ -21,7 +21,11 @@
             matInput
             placeholder="Blog title"
             formControlName="blog_title"
+            className="custom-form-field"
           />
+          <mat-error *ngIf="handleError('blog_title', 'required')">
+            Field required.
+          </mat-error>
         </mat-form-field>
 
         <!-- Content -->
@@ -31,6 +35,9 @@
             placeholder="Blog content"
             formControlName="blog_content"
           />
+          <mat-error *ngIf="handleError('blog_content', 'required')">
+            Field required.
+          </mat-error>
         </mat-form-field>
 
         <!-- Author -->
@@ -40,6 +47,9 @@
             placeholder="Blog author"
             formControlName="blog_author"
           />
+          <mat-error *ngIf="handleError('blog_author', 'required')">
+            Field required.
+          </mat-error>
         </mat-form-field>
       </div>
     </mat-card>
@@ -48,7 +58,9 @@
     <mat-card>
       <div class="full-wrapper button-wrapper">
         <div class="button-wrapper">
-          <button mat-flat-button color="warn">Submit</button>
+          <button class="submit-btn" mat-flat-button color="warn">
+            Submit
+          </button>
         </div>
       </div>
     </mat-card>
