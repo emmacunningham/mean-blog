@@ -3,6 +3,7 @@ import { ApiService } from "../../shared/api.service";
 import { Component, ViewChild, OnInit } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-blogs-list",
@@ -14,6 +15,7 @@ export class BlogsListComponent implements OnInit {
   dataSource: MatTableDataSource<Blog>;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   displayedColumns: string[] = ["blog_title", "blog_content", "blog_author"];
+  faUser = faUser;
 
   constructor(private blogApi: ApiService) {
     this.blogApi.GetBlogs().subscribe((data) => {

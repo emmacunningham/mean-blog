@@ -1,0 +1,32 @@
+.blogs-page {
+  padding: 30px 55px;
+  margin-top: 75px;
+}
+
+.blog-container {
+  padding-bottom: 50px;
+}
+
+.user-icon {
+  color: #3d9ef1;
+}
+
+.blog-title {
+  border-bottom: thin solid #ccc;
+  font-size: 36px;
+}
+
+.blog-content {
+  padding: 15px 25px;
+  font-size: 21px;
+  font-family: Roboto, sans-serif;
+  color: #7a7a7a;
+  font-weight: 300;
+}
+
+.blog-author {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}

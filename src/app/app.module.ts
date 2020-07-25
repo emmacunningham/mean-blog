@@ -21,13 +21,11 @@ import { ApiService } from "./shared/api.service";
 /* Reactive form services in Angular 8 */
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+/* Font awesome for icons */
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddBlogComponent,
-    // EditBlogComponent,
-    BlogsListComponent,
-  ],
+  declarations: [AppComponent, AddBlogComponent, BlogsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
