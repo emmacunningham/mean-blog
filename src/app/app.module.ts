@@ -4,9 +4,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 /* Angular 8 components */
-import { AddStudentComponent } from "./components/add-student/add-student.component";
-// import { EditStudentComponent } from './components/edit-student/edit-student.component';
-import { StudentsListComponent } from "./components/students-list/students-list.component";
+import { AddBlogComponent } from "./components/add-blog/add-blog.component";
+import { BlogsListComponent } from "./components/blogs-list/blogs-list.component";
 
 /* Angular material */
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -25,9 +24,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
-    AddStudentComponent,
-    // EditStudentComponent,
-    StudentsListComponent,
+    AddBlogComponent,
+    // EditBlogComponent,
+    BlogsListComponent,
   ],
   imports: [
     BrowserModule,

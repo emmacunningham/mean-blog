@@ -1,15 +1,15 @@
-import { Blog } from "./../../shared/blog";
-import { ApiService } from "./../../shared/api.service";
+import { Blog } from "../../shared/blog";
+import { ApiService } from "../../shared/api.service";
 import { Component, ViewChild, OnInit } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
-  selector: "app-students-list",
-  templateUrl: "./students-list.component.html",
-  styleUrls: ["./students-list.component.css"],
+  selector: "app-blogs-list",
+  templateUrl: "./blogs-list.component.html",
+  styleUrls: ["./blogs-list.component.css"],
 })
-export class StudentsListComponent implements OnInit {
+export class BlogsListComponent implements OnInit {
   BlogData: any = [];
   dataSource: MatTableDataSource<Blog>;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;

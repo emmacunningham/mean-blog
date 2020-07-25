@@ -10,17 +10,17 @@ export interface Subject {
 }
 
 @Component({
-  selector: "app-add-student",
-  templateUrl: "./add-student.component.html",
-  styleUrls: ["./add-student.component.css"],
+  selector: "app-add-blog",
+  templateUrl: "./add-blog.component.html",
+  styleUrls: ["./add-blog.component.css"],
 })
-export class AddStudentComponent implements OnInit {
+export class AddBlogComponent implements OnInit {
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
   @ViewChild("chipList", { static: true }) chipList;
-  @ViewChild("resetStudentForm", { static: true }) myNgForm;
+  @ViewChild("resetBlogForm", { static: true }) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   blogForm: FormGroup;
 
