@@ -63,11 +63,11 @@ app.get("/", (req, res) => {
   res.send("invaild endpoint");
 });
 
-// app.get("*", (req, res) => {
-//   res.sendFile(
-//     path.join(__dirname, "dist/angular8-meanstack-angular-material/index.html")
-//   );
-// });
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "dist/angular8-meanstack-angular-material/index.html")
+  );
+});
 
 // error handler
 app.use(function (err, req, res, next) {
