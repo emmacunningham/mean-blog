@@ -1,5 +1,40 @@
 # Steps to creating blog project
 
+## Install dependencies for running the project locally
+
+- [install Homebrew](https://brew.sh/) - package manage for OS X, follow instructions at the top
+- [install mongodb](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+  - `brew tap mongodb/brew` - gets the "tap" for mongo
+  - `brew install mongodb-community@4.2` - installs the specific version of mongo
+  - `brew services start mongodb-community@4.2` - starts mongo instance running locally on your machine
+- install Nodejs and npm - will be used to manage the packages for the project as well as run the backend code
+  - `brew install node` - this should install both nodejs and npm
+- install the project dependencies
+  - from the root directory of the project `npm install`
+
+## Running the project locally for viewing the project
+
+(all commands are run from the root directory of the project)
+
+- build the front-end assets
+  - `npm run build`
+- run the server
+  - `npm run dev:server`
+  - visit `localhost:8080` in a browser and the app should load
+
+## Running the project locally for developing the project
+
+(all commands are run from the root directory of the project)
+
+- run the server
+  - `npm run dev:server`
+  - visit `localhost:8080` in a browser and the app should load
+- run the angular front-end in development mode
+  - `npm run dev:client` - this will re-build any changes you make when saving a file
+  - update the endpoint in `/src/app/shared/api.service.ts` from `/api` to `http://localhost:8080/api` (make sure you undo this change before deployment)
+
+## Overview of changes
+
 - Database: Update model to store blog resource
   - Create `/backend/model/Blog.js` file
 - Backend: Create routes for blog
