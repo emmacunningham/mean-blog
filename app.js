@@ -1,25 +1,13 @@
 let express = require("express"),
   path = require("path"),
-  mongoose = require("mongoose"),
+  // mongoose = require("mongoose"),
   cors = require("cors"),
   bodyParser = require("body-parser"),
-  dataBaseConfig = require("./backend/database/db");
+  initDb = require("./backend/database/conn");
 
-// Connecting mongoDB
-mongoose.Promise = global.Promise;
-mongoose
-  .connect(dataBaseConfig.db, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-  })
-  .then(
-    () => {
-      console.log("Database connected sucessfully ");
-    },
-    (error) => {
-      console.log("Could not connected to database : " + error);
-    }
-  );
+// dataBaseConfig = require("./backend/database/db");
+
+initDb();
 
 // Set up express js port
 const blogRoute = require("./backend/routes/blog.route");
