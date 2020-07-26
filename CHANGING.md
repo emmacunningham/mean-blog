@@ -175,3 +175,26 @@ The code below comes from `blogs-list.component.html`. Note where we reference `
 ```
 
 In addition to being able to reference the `BlogData` variable in the template, angular also extends ordinary HTML by providing special attributes that can be used for performing logic using the data we have access to. `*ngIf="BlogData.length <= 0"` in the first `<p>` tag, for example, will apply logic to that HTML element such that it will only be rendered if the length of the `BlogData` array is 0 or less. The `*ngFor="let item of BlogData"` in the `blog-container` element sets up a container that will iterate over each item of the `BlogData` array; this is equivalent to setting up a `for`-loop.
+
+## Using Git
+
+### Command line
+
+To clone a repository:
+
+- `git clone` + repository path (in GitHub: green Code button > text in Clone with SSH)
+
+### Within VS Code
+
+Select the icon on the left that corresponds to "Source Control" (looks like node branching)
+
+Creating a commit:
+
+- Press the + button on individual files to add changes to a commit
+- Enter a commit message in the text field at the top
+- Press the check mark at the top
+
+To push to the remote repository:
+
+- Click on the ... at the top
+- Select "Push to..." and select "origin"
