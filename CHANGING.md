@@ -178,6 +178,8 @@ In addition to being able to reference the `BlogData` variable in the template, 
 
 ## Using Git
 
+Start by reading [the Git Handbook](https://guides.github.com/introduction/git-handbook/).
+
 ### Command line
 
 To clone a repository:
@@ -198,3 +200,9 @@ To push to the remote repository:
 
 - Click on the ... at the top
 - Select "Push to..." and select "origin"
+
+## Deployment
+
+_Deployment_ describes the process of getting the code you have working on your local computer running on a remote instance so others can access the app. There are many ways to deploy an app, and many different services that can be used. This project uses Heroku, which itself is a wrapper around AWS.
+
+One of the features that Heroku offers is the ability to deploy to your application using your GitHub repository. This means that instead of bundling up your code yourself, you can configure Heroku to deploy based off of code you have on your remote GitHub repository. See here for details on the integration of GitHub with Heroku: https://devcenter.heroku.com/articles/github-integration
